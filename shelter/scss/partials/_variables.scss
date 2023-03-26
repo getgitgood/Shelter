@@ -11,10 +11,20 @@ $color-dark-2xl: #444444;
 $color-dark-3xl: #292929;
 $color-primary: #F1CDB3;
 $color-primary-light: #FDDCC4;
-$start-screen-gradient-background: radial-gradient(#5B483A 0, #262425 100%);
+$start-screen-gradient-background: linear-gradient(118deg, rgba(91,72,58,1) 20%, rgba(38,36,37,1) 55%);
 $footer-gradient-background: radial-gradient(#513D2F 0, #1A1A1C 100%);
 
 // font variables
 
-$george-reg: "Georgian Regular", serif;
-$george-bld: "Georgian Bold", serif;
+$georgia: "Georgia", serif;
+$arial: "Arial", sans-serif;
+
+// break-point variables
+
+$container-width: 1280px;
+$tablet: 800px;
+$semi-mobile: 660px;
+$mobile: 320px;
+$throw-burger: 735px;
+$semi-tablet: 1080px;
+$mobile-extreme: 280px;

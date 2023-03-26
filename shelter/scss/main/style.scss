@@ -33,7 +33,7 @@ html {
   z-index: 5;
 }
 
-.header__wrapper {
+.header-wrapper {
   position: absolute;
   width: 100%;
   left: 0;
@@ -41,34 +41,12 @@ html {
   margin: 0 auto;
 }
 
-.header__container {
-  
+.header-container {
   @include flex-around($horz: space-between);
   padding-top: 30px;
   @media (max-width: $mobile) {
-    padding-top: 27px;
+    padding-top: 30px;
   }
-}
-
-.logo-title, .logo-subtitle {
-  display: block;
-}
-
-.logo-title {
-  font-size: 32px;
-  color: $color-primary;
-  padding-bottom: 8px;
-  letter-spacing: 0.13rem;
-  line-height: 2.5rem;
-}
-
-.logo-subtitle {
-  margin: 0;
-  font-family: $arial;
-  font-weight: 400;
-  font-size: 13px;
-  letter-spacing: 1.3px;
-  color: $color-light-xl;
 }
 
 .menu-item {
@@ -80,49 +58,12 @@ html {
   }
 
 }
-.menu-item-link {
-  position: relative;
-  display: inline-block;
-  color: $color-dark-s;
 
-  &::after {
-    content: "";
-    position: absolute;
-    bottom: -6px;
-    display: block;
-    height: 3px;
-    background: $color-primary;
-    width: 0;
-    left: 50%;
-    transition: width 0.3s ease 0s, left 0.3s ease 0s;
-  }
-
-  &:hover::after {
-    width: 100%;
-    left: 0;
-  }
-}
-
-.menu-item-link--active {
-  position: relative;
-  cursor: default;
-  &::after {
-    content: "";
-    left: 0;
-    position: absolute;
-    bottom: -6px;
-    display: block;
-    height: 3px;
-    width: 100%;
-    background: $color-primary;
-  }
-}
-
-.header__nav {
+.header-nav {
   @include flex-around()
 }
 
-.header__nav-menu {
+.header-nav-menu {
   display: flex;
   padding-bottom: 0.3rem;
   @media (max-width: $throw-burger) {
@@ -151,9 +92,7 @@ html {
   }
 }
 
-.logo-link {
-  text-align: center;
-}
+
 // ================== Main
 
 .main {
@@ -176,12 +115,12 @@ html {
   @media (max-width: $semi-tablet) {
     flex-direction: column;
     justify-content: center;
-    padding-top: 150px;
+    padding-top: 148px;
   }
   @media (max-width: $mobile) {
     padding-left: 10px;
     padding-right: 10px;
-    padding-top: 146px;
+    padding-top: 150px;
   }
 }
 
@@ -192,14 +131,14 @@ html {
   @media (max-width: $semi-tablet) {
     margin-bottom: 102px;
 
-    & > .button--primary {
+    & > a .button--primary {
       display: flex;
       margin: 0 auto;
     }
   }
   
   @media (max-width: $mobile) {
-    margin-bottom: 109px;
+    margin-bottom: 106px;
     text-align: center;
     & > .intro-content-heading {
       font-size: 25px;
@@ -216,7 +155,7 @@ html {
 }
 
 .intro-content-text {
-  margin: 41px 0;
+  margin: 42px 0;
   font-family: $arial;
   color: $color-dark-s;
 
@@ -231,28 +170,8 @@ html {
     align-self: flex-end;
   }
   @media (max-width: $mobile) {
-    max-width: 86%;
-    margin-right: 2px;
-    align-self: flex-end;
+    max-width: 87%;
   }
-}
-
-.button {
-  display: inline-block;
-  padding: 15px 44px;
-  font-size: 17px;
-  letter-spacing: 1px;
-  text-align: center;
-  line-height: 20px;
-  color: $color-dark-3xl;
-  border: 1px solid $color-primary;
-  border-radius: 100px;
-  background-color: transparent;
-  cursor: pointer;
-}
-
-.button--primary {
-  background-color: $color-primary;
 }
 
 // -- about
@@ -288,31 +207,6 @@ html {
       margin-bottom: 22px;
     }
   }
-}
-
-.h2 {
-  margin: 0;
-  font-size: 35px;
-  font-weight: 400;
-  color: $color-dark-l;
-  letter-spacing: 2.2px;
-  @media (max-width: $mobile-extreme) {
-    & .span-pre {
-      white-space:normal;
-    }
-  }
-}
-
-.h2--light {
-  margin: 0;
-  color: $color-light-xl;
-  font-weight: 400;
-  font-size: 44px;
-  line-height: 58px;
-  font-style:normal;
-}
-.span-pre {
-  white-space: pre;
 }
 
 .about-background {
@@ -354,6 +248,10 @@ html {
   align-items: center;
   flex-direction: column;
   row-gap: 60px;
+  @media (max-width: $tablet) {
+    padding-top: 79px;
+    padding-bottom: 101px;
+  }
   @media (max-width: $mobile) {
     padding-top: 45px;
     padding-bottom: 41px;
@@ -381,37 +279,20 @@ html {
   align-self: stretch;
   @media (max-width: $throw-burger) {
     flex-wrap: wrap;
-    justify-content: space-around ;
-  }
-  & .slider-btn {
-    @media (max-width: $throw-burger) {
-      margin-top: 20px;
-    }
+    justify-content: center ;
+    column-gap: 80px;
+    row-gap: 21px;
   }
 }
 
 .slider-items {
-  @include flex-around($horz: space-around);
+  @include flex-around($horz: space-evenly);
+  column-gap: 34px;
   flex-wrap: wrap;
+  overflow: hidden;
   width: 100%;
-
-}
-
-.slider-item {
-  padding-bottom: 30px;
-  @include flex-around();
-  flex-direction: column;
-  row-gap: 30px;
-  flex-shrink: 1;
-  @media (max-width: $semi-tablet) {
-    &:last-child {
-      display: none;
-    }
-  }
-  @media (max-width: $throw-burger) {
-    &:not(:first-child) {
-      display: none;
-    }
+  @media (max-width: $tablet) {
+    column-gap: 24px;
   }
 }
 
@@ -419,43 +300,6 @@ html {
   padding-bottom: 30px;
 }
 
-.slider-image {
-  max-width: 270px;
-}
-
-.slider-pet-name {
-  font-size: 20px;
-  line-height: 21px;
-  letter-spacing: 1.2px;
-}
-
-.slider-btn {
-  padding: 14px 15px;
-  border-radius: 50%;
-  border-width: 2px;
-}
-
-.slider-btn--prev {
-  order: -1;
-  @media (max-width: $throw-burger) {
-    order: 1;
-  }
-}
-
-.slider-btn--next {
-  order: 1;
-  @media (max-width: $throw-burger) {
-    order: 2;
-  }
-}
-
-.button--secondary {
-  font-size: 18px;
-  border-width: 2px;
-  color: $color-dark-3xl;
-  letter-spacing: 0.6px;
-  padding: 14px 42px;
-}
 
 // --help--------------
 
@@ -570,8 +414,11 @@ html {
 .donation-wrapper {
   padding-top: 80px;
   padding-bottom: 99px;
+  @media (max-width: $semi-tablet) {
+    padding-bottom: 100px;
+  }
   @media (max-width: $semi-mobile) {
-    padding: 42px 10px;
+    padding: 40px 10px;
   }
 }
 
@@ -595,7 +442,7 @@ html {
   @media (max-width: $semi-mobile) {
     padding-left: 10px;
     padding-right: 10px;
-    row-gap: 44px;
+    row-gap: 42px;
   }
 }
 
@@ -631,10 +478,10 @@ html {
 
   @media (max-width: $semi-mobile) {
     min-width: 280px;
-    margin-top: 3px;
+    margin-top: 5px;
     letter-spacing: 1px;
     padding-right: 0;
-    padding-left: 55px;
+    padding-left: 58px;
   }
 }
 
@@ -661,30 +508,26 @@ html {
     z-index: 1;
     @media (max-width: $semi-mobile) {
       left: 13px;
-      top: 35px;
+      top: 34px;
     }
   }
   
 }
 
-::placeholder {
-  color: $color-dark-l;
-  @media (max-width: $semi-mobile) {
-    font-size: 15px;
+.pets-item {
+  @media (max-width: $semi-tablet) {
+    &:not(:nth-child(-n+2)) {
+      display: none;
+    }
+  }
+  @media (max-width: $throw-burger) {
+    display: none;
+    &.show {
+      display:flex;
+    }
   }
 }
-:-ms-input-placeholder {
-  color: $color-dark-l;
-  @media (max-width: $semi-mobile) {
-    font-size: 15px;
-  }
-}
-::-ms-input-placeholder {
-  color: $color-dark-l;
-  @media (max-width: $semi-mobile) {
-    font-size: 15px;
-  }
-}
+
 
 .donation-form {
   color: $color-dark-l;
@@ -721,11 +564,11 @@ html {
 .footer-wrapper {
   padding-top: 40px;
   @media (max-width: $tablet) {
-    padding: 33px 33px 0;
+    padding: 28px 33px 0;
   }
 
   @media (max-width: $semi-mobile) {
-    padding: 33px 10px 0;
+    padding: 28px 10px 0;
   }
 }
 .footer-content {
@@ -737,31 +580,32 @@ html {
     row-gap: 65px;
   }
   @media (max-width: $semi-mobile) {
-    row-gap: 45px;
+    row-gap: 38px;
   }
 }
 
 .footer-contacts-heading {
   font-size: 35px;
-  line-height: 45px;
+  line-height: 46px;
   letter-spacing: 2.1px;
   color: $color-light-xl;
 
   @media (max-width: $semi-mobile) {
     font-size: 24px;
+    padding: 0 15px;
     text-align: center;
-    line-height: 30px;
+    line-height: 33px;
     & > .span-pre {
       white-space: initial;
     }
   }
 }
 .footer-contacts {
-  padding-top: 18px;
+  padding-top: 16px;
   display: flex;
   max-width: 300px;
   flex-flow: column nowrap;
-  row-gap: 39px;
+  row-gap: 40px;
   @media (max-width: $tablet) {
     padding: 0;
   }
@@ -771,7 +615,7 @@ html {
   margin-right: 20px;
   row-gap: 32px;
   @media (max-width: $tablet) {
-    margin-right: 5px;
+    margin: 0;
 
     @media (max-width: $semi-mobile) {
       row-gap: 41px;
@@ -781,6 +625,7 @@ html {
     }
   }
 }
+
 .footer-link {
   @include flex-around($horz: flex-start);
   column-gap: 20px;
@@ -789,6 +634,11 @@ html {
   letter-spacing: 1.1px;
   color: $color-primary;
 
+  transition: color 0.3s ease-in;
+
+  &:hover {
+    color: $color-dark-m;
+  }
   @media (max-width: $semi-mobile) {
     justify-content: center;
   }
@@ -807,3 +657,4 @@ html {
     max-width: 88%;
   }
 }
+// ===========================
