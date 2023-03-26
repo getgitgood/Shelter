@@ -900,9 +900,9 @@ html {
   .intro-content {
     margin-bottom: 102px;
   }
-  .intro-content > a .button--primary {
+  .intro-content > div {
     display: flex;
-    margin: 0 auto;
+    justify-content: center;
   }
 }
 @media (max-width: 320px) {

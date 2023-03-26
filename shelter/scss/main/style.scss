@@ -1,4 +1,4 @@
-@import "../partials/";
+@import "../partials/variables";
 @import "../partials/global";
 @import "../partials/fonts";
 @import "../partials/mixin";
@@ -131,9 +131,9 @@ html {
   @media (max-width: $semi-tablet) {
     margin-bottom: 102px;
 
-    & > a .button--primary {
+    & > div  {
       display: flex;
-      margin: 0 auto;
+      justify-content: center;
     }
   }
   
