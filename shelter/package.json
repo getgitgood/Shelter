@@ -1,0 +1,24 @@
+{
+  "name": "shelter",
+  "version": "1.0.0",
+  "description": "animal shelter website",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "none"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rolling-scopes-school/getgitgood-JSFE2023Q1"
+  },
+  "keywords": [
+    "animal",
+    "shelter",
+    "charity"
+  ],
+  "author": "Nikolai Shvechkov",
+  "license": "ISC",
+  "dependencies": {
+    "normalize.css": "^8.0.1",
+    "sass": "^1.59.3"
+  }
+}

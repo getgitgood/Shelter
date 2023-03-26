@@ -1,0 +1,7 @@
+// mixins
+
+@mixin flex-around ($horz: space-around, $vert: center) {
+  display: flex;
+  justify-content: $horz;
+  align-items: $vert;
+}

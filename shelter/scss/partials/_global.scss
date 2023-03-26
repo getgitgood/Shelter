@@ -1,0 +1,257 @@
+@import "../partials/fonts";
+*, *::after, *::before {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: $color-dark-l;
+}
+
+input:hover {
+  cursor: pointer;
+}
+
+.h2 {
+  margin: 0;
+  font-size: 35px;
+  font-weight: 400;
+  color: $color-dark-l;
+  letter-spacing: 2.2px;
+  @media (max-width: $mobile-extreme) {
+    & .span-pre {
+      white-space:normal;
+    }
+  }
+}
+.logo-title, .logo-subtitle {
+  display: block;
+}
+
+.header-logo:hover {
+  & > a .logo-subtitle {
+    color: $color-dark-m;
+  }
+}
+.logo-title {
+  font-size: 32px;
+  color: $color-primary;
+  padding-bottom: 8px;
+  letter-spacing: 0.13rem;
+  line-height: 2.5rem;
+}
+
+.logo-subtitle {
+  margin: 0;
+  font-family: $arial;
+  font-weight: 400;
+  font-size: 13px;
+  letter-spacing: 1.3px;
+  color: $color-light-xl;
+
+  transition: color 0.3s ease;
+}
+
+
+
+.logo-link {
+  text-align: center;
+}
+
+.menu-item-link {
+  position: relative;
+  display: inline-block;
+  color: $color-dark-s;
+  transition: color 0.3s ease-in-out;
+  &:hover {
+    color: $color-dark-m;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -6px;
+    display: block;
+    height: 3px;
+    background: $color-primary;
+    width: 0;
+    left: 50%;
+    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+  }
+
+  &:hover::after {
+    width: 100%;
+    left: 0;
+  }
+}
+
+
+.link--active {
+  position: relative;
+  color: $color-light-s;
+  pointer-events: none;
+  &::after {
+    content: "";
+    left: 0;
+    position: absolute;
+    bottom: -6px;
+    display: block;
+    height: 3px;
+    width: 100%;
+    background: $color-primary;
+  }
+}
+
+
+.wrapper {
+  padding-left: 40px;
+  padding-right: 40px;
+  max-width: $container-width;
+  margin: 0 auto;
+  @media screen and (max-width: $tablet) {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  @media screen and (max-width: $mobile) {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+.button {
+  display: inline-block;
+  padding: 15px 44px;
+  font-size: 17px;
+  letter-spacing: 1px;
+  text-align: center;
+  line-height: 20px;
+  color: $color-dark-3xl;
+  border: 1px solid $color-primary;
+  border-radius: 100px;
+  background-color: transparent;
+  cursor: pointer;
+
+  transition: all 0.3s ease-in;
+  &:hover {
+    background-color: $color-primary-light;
+    border-color: transparent;
+  }
+}
+
+.pets-item {
+  padding-bottom: 30px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  row-gap: 30px;
+  flex-shrink: 1;
+
+  &:hover {
+    & > .button {
+      background-color: $color-primary-light;
+      border-color: transparent;
+    }
+  }
+}
+
+.button:focus {
+  outline-color: $color-dark-2xl;
+}
+
+::placeholder {
+  color: $color-dark-l;
+  @media (max-width: $semi-mobile) {
+    font-size: 15px;
+  }
+}
+:-ms-input-placeholder {
+  color: $color-dark-l;
+  @media (max-width: $semi-mobile) {
+    font-size: 15px;
+  }
+}
+::-ms-input-placeholder {
+  color: $color-dark-l;
+  @media (max-width: $semi-mobile) {
+    font-size: 15px;
+  }
+}
+
+.button--primary {
+  background-color: $color-primary;
+}
+
+.button--secondary {
+  font-size: 18px;
+  border-width: 2px;
+  color: $color-dark-3xl;
+  letter-spacing: 0.6px;
+  padding: 14px 42px;
+}
+
+.button-pagi--prev {
+  order: -1;
+  @media (max-width: $throw-burger) {
+    order: 1;
+  }
+}
+
+.button-pagi--next {
+  order: 1;
+  @media (max-width: $throw-burger) {
+    order: 2;
+  }
+}
+
+.button-pagi {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 52px;
+  min-height: 52px;
+  padding: 0;
+  border-radius: 50%;
+  border-width: 2px;
+  color: $color-dark-3xl;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: normal;
+}
+
+.button--inactive {
+  color: $color-dark-s;
+  border-color: $color-dark-s;
+  pointer-events: none;
+}
+
+.button--active {
+  background-color: $color-primary;
+  font-weight: 400;
+  cursor: default;
+  &:hover {
+    background-color: $color-primary;
+  }
+}
+
+.pets-item-name {
+  font-size: 20px;
+  line-height: 21px;
+  letter-spacing: 1.2px;
+}
+
+.h2--light {
+  margin: 0;
+  color: $color-light-xl;
+  font-weight: 400;
+  font-size: 44px;
+  line-height: 58px;
+  font-style:normal;
+}
+
+.pets-image {
+  pointer-events: none;
+}
+.span-pre {
+  white-space: pre;
+}
