@@ -19,12 +19,12 @@ html {
 }
 
 
-.header__container {
+.header-container {
   @include flex-around($horz: space-between);
   padding-top: 30px;
-  padding-bottom: 34px;
+  padding-bottom: 30px;
   @media (max-width: $mobile) {
-    padding-top: 27px;
+    padding-top: 30px;
   }
 }
 
@@ -62,7 +62,10 @@ html {
   position: relative;
   display: inline-block;
   color: $color-dark-l;
-
+  transition: color 0.5s ease-in-out;
+  &:hover {
+    color: $color-dark-3xl;
+  }
   &::after {
     content: "";
     position: absolute;
@@ -97,11 +100,11 @@ html {
   }
 }
 
-.header__nav {
+.header-nav {
   @include flex-around()
 }
 
-.header__nav-menu {
+.header-nav-menu {
   display: flex;
   padding-bottom: 0.3rem;
   @media (max-width: $throw-burger) {
@@ -118,7 +121,7 @@ html {
     height: 2px;
     width: 30px;
     margin-bottom: 8px;
-    background-color: $color-primary;
+    background-color: #000;
   }
 
   & > .bar:last-child {
@@ -138,42 +141,70 @@ html {
 .pets {
   background: $color-light-l;
 }
+
 .pets-wrapper {
   display: flex;
   flex-direction: column;
+  align-items: center;
   row-gap: 45px;
-  padding-top: 79px;
+  padding-top: 80px;
   padding-bottom: 100px;
+  flex: 1 0;
+  @media (max-width: $semi-tablet) {
+    row-gap: 15px;
+    padding-bottom: 76px;
+  }
+  @media (max-width: $semi-mobile) {
+    padding-top: 42px;
+    padding-bottom: 43px;
+  }
 }
 
 .pets-heading {
   max-width: 400px;
+  
   align-self: center;
   text-align: center;
   line-height: 45px;
+
+  @media (max-width: $semi-mobile) {
+    max-width: 100%;
+    font-size: 25px;
+    line-height: 32px;
+    letter-spacing: 1.3px;
+    & > .span-pre {
+      white-space: pre;
+    }
+  }
 }
 
 .pets-items {
   @include flex-around($horz: space-between);
   row-gap: 31px;
-  padding-top: 15px;
+  padding-top: 16px;
   padding-bottom: 15px;
   flex-flow: row wrap;
+  @media (max-width: $semi-tablet) {
+    padding: 15px 64px 25px;
+    row-gap: 31px;
+  }
+  @media (max-width: $throw-burger) {
+    flex-flow: column wrap;
+  }
+  @media (max-width: $semi-mobile) {
+    padding: 27px 15px;
+  }
 }
 
 .pets-item {
-  padding-bottom: 30px;
-  @include flex-around();
-  flex-direction: column;
-  row-gap: 30px;
-  flex-shrink: 1;
+  padding-bottom: 31px;
   @media (max-width: $semi-tablet) {
-    &:last-child {
+    &:not(:nth-child(-n+6)) {
       display: none;
     }
   }
   @media (max-width: $throw-burger) {
-    &:not(:first-child) {
+    &:not(:nth-child(-n+3)) {
       display: none;
     }
   }
@@ -182,12 +213,12 @@ html {
 .pagination {
   @include flex-around($horz: center);
   column-gap: 20px;
+
+  @media (max-width: $semi-mobile) {
+    column-gap: 10px;
+  }
 }
 
-.pagi-item {
-  width: 52px;
-  height: 52px;
-}
 // ================== Footer
 
 .footer {
@@ -218,7 +249,7 @@ html {
     row-gap: 65px;
   }
   @media (max-width: $semi-mobile) {
-    row-gap: 45px;
+    row-gap: 38px;
   }
 }
 
@@ -230,8 +261,9 @@ html {
 
   @media (max-width: $semi-mobile) {
     font-size: 24px;
+    padding: 0 15px;
     text-align: center;
-    line-height: 30px;
+    line-height: 32px;
     & > .span-pre {
       white-space: initial;
     }
@@ -252,7 +284,7 @@ html {
   margin-right: 20px;
   row-gap: 32px;
   @media (max-width: $tablet) {
-    margin-right: 5px;
+    margin: 0;
 
     @media (max-width: $semi-mobile) {
       row-gap: 41px;
@@ -269,7 +301,11 @@ html {
   line-height: 23px;
   letter-spacing: 1.1px;
   color: $color-primary;
+  transition: color 0.3s ease-in;
 
+  &:hover {
+    color: $color-dark-m;
+  }
   @media (max-width: $semi-mobile) {
     justify-content: center;
   }
@@ -285,7 +321,7 @@ html {
 .footer-background {
   max-width: 100%;
   @media (max-width: $semi-mobile) {
-    max-width: 88%;
+    max-width: 87%;
   }
 }
 // ===========================

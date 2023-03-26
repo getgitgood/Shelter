@@ -1,3 +1,94 @@
+@font-face {
+  font-family: "Georgia";
+  src: url("../../assets/fonts/Georgia/Georgia.woff2") format("woff2"), url("../../assets/fonts/Georgia/Georgia.woff") format("woff");
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Georgia";
+  src: url("../../assets/fonts/Georgia/Georgia-BoldItalic.woff2") format("woff2"), url("../../assets/fonts/Georgia/Georgia-BoldItalic.woff") format("woff");
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Georgia";
+  src: url("../../assets/fonts/Georgia/Georgia-Bold.woff2") format("woff2"), url("../../assets/fonts/Georgia/Georgia-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Georgia";
+  src: url("../../assets/fonts/Georgia/Georgia.woff2") format("woff2"), url("../../assets/fonts/Georgia/Georgia.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Arial";
+  src: url("../../assets/fonts/Arial/Arial-Black.woff2") format("woff2"), url("../../assets/fonts/Arial/Arial-Black.woff") format("woff");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Arial";
+  src: url("../../assets/fonts/Arial/Arial-BoldMT.woff2") format("woff2"), url("../../assets/fonts/Arial/Arial-BoldMT.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Arial";
+  src: url("../../assets/fonts/Arial/Arial-BoldItalicMT.woff2") format("woff2"), url("../../assets/fonts/Arial/Arial-BoldItalicMT.woff") format("woff");
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Arial";
+  src: url("../../assets/fonts/Arial/Arial-ItalicMT.woff2") format("woff2"), url("../../assets/fonts/Arial/Arial-ItalicMT.woff") format("woff");
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Arial Narrow";
+  src: url("../../assets/fonts/Arial/ArialNarrow.woff2") format("woff2"), url("../../assets/fonts/Arial/ArialNarrow.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Arial Narrow";
+  src: url("../../assets/fonts/Arial/ArialNarrow-Bold.woff2") format("woff2"), url("../../assets/fonts/Arial/ArialNarrow-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Arial Narrow";
+  src: url("../../assets/fonts/Arial/ArialNarrow-BoldItalic.woff2") format("woff2"), url("../../assets/fonts/Arial/ArialNarrow-BoldItalic.woff") format("woff");
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Arial Narrow";
+  src: url("../../assets/fonts/Arial/ArialNarrow-Italic.woff2") format("woff2"), url("../../assets/fonts/Arial/ArialNarrow-Italic.woff") format("woff");
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Arial";
+  src: url("../../assets/fonts/Arial/ArialMT.woff2") format("woff2"), url("../../assets/fonts/Arial/ArialMT.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
 *, *::after, *::before {
   box-sizing: border-box;
 }
@@ -5,6 +96,10 @@
 a {
   text-decoration: none;
   color: #545454;
+}
+
+input:hover {
+  cursor: pointer;
 }
 
 .h2 {
@@ -18,6 +113,77 @@ a {
   .h2 .span-pre {
     white-space: normal;
   }
+}
+
+.logo-title, .logo-subtitle {
+  display: block;
+}
+
+.header-logo:hover > a .logo-subtitle {
+  color: #B2B2B2;
+}
+
+.logo-title {
+  font-size: 32px;
+  color: #F1CDB3;
+  padding-bottom: 8px;
+  letter-spacing: 0.13rem;
+  line-height: 2.5rem;
+}
+
+.logo-subtitle {
+  margin: 0;
+  font-family: "Arial", sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  letter-spacing: 1.3px;
+  color: #FFFFFF;
+  transition: color 0.3s ease;
+}
+
+.logo-link {
+  text-align: center;
+}
+
+.menu-item-link {
+  position: relative;
+  display: inline-block;
+  color: #CDCDCD;
+  transition: color 0.3s ease-in-out;
+}
+.menu-item-link:hover {
+  color: #B2B2B2;
+}
+.menu-item-link::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  display: block;
+  height: 3px;
+  background: #F1CDB3;
+  width: 0;
+  left: 50%;
+  transition: width 0.3s ease 0s, left 0.3s ease 0s;
+}
+.menu-item-link:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+.link--active {
+  position: relative;
+  color: #FAFAFA;
+  pointer-events: none;
+}
+.link--active::after {
+  content: "";
+  left: 0;
+  position: absolute;
+  bottom: -6px;
+  display: block;
+  height: 3px;
+  width: 100%;
+  background: #F1CDB3;
 }
 
 .wrapper {
@@ -51,6 +217,56 @@ a {
   border-radius: 100px;
   background-color: transparent;
   cursor: pointer;
+  transition: all 0.3s ease-in;
+}
+.button:hover {
+  background-color: #FDDCC4;
+  border-color: transparent;
+}
+
+.pets-item {
+  padding-bottom: 30px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  row-gap: 30px;
+  flex-shrink: 1;
+}
+.pets-item:hover > .button {
+  background-color: #FDDCC4;
+  border-color: transparent;
+}
+
+.button:focus {
+  outline-color: #444444;
+}
+
+::placeholder {
+  color: #545454;
+}
+@media (max-width: 660px) {
+  ::placeholder {
+    font-size: 15px;
+  }
+}
+
+:-ms-input-placeholder {
+  color: #545454;
+}
+@media (max-width: 660px) {
+  :-ms-input-placeholder {
+    font-size: 15px;
+  }
+}
+
+::-ms-input-placeholder {
+  color: #545454;
+}
+@media (max-width: 660px) {
+  ::-ms-input-placeholder {
+    font-size: 15px;
+  }
 }
 
 .button--primary {
@@ -65,31 +281,55 @@ a {
   padding: 14px 42px;
 }
 
-.slider-btn {
-  padding: 14px 15px;
-  border-radius: 50%;
-  border-width: 2px;
-}
-
-.slider-btn--prev {
+.button-pagi--prev {
   order: -1;
 }
-@media (max-width: 720px) {
-  .slider-btn--prev {
+@media (max-width: 735px) {
+  .button-pagi--prev {
     order: 1;
   }
 }
 
-.slider-btn--next {
+.button-pagi--next {
   order: 1;
 }
-@media (max-width: 720px) {
-  .slider-btn--next {
+@media (max-width: 735px) {
+  .button-pagi--next {
     order: 2;
   }
 }
 
-.slider-pet-name {
+.button-pagi {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 52px;
+  min-height: 52px;
+  padding: 0;
+  border-radius: 50%;
+  border-width: 2px;
+  color: #292929;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: normal;
+}
+
+.button--inactive {
+  color: #CDCDCD;
+  border-color: #CDCDCD;
+  pointer-events: none;
+}
+
+.button--active {
+  background-color: #F1CDB3;
+  font-weight: 400;
+  cursor: default;
+}
+.button--active:hover {
+  background-color: #F1CDB3;
+}
+
+.pets-item-name {
   font-size: 20px;
   line-height: 21px;
   letter-spacing: 1.2px;
@@ -104,97 +344,101 @@ a {
   font-style: normal;
 }
 
+.pets-image {
+  pointer-events: none;
+}
+
 .span-pre {
   white-space: pre;
 }
 
 @font-face {
   font-family: "Georgia";
-  src: url("Georgia-Italic.woff2") format("woff2"), url("Georgia-Italic.woff") format("woff");
+  src: url("../../assets/fonts/Georgia/Georgia.woff2") format("woff2"), url("../../assets/fonts/Georgia/Georgia.woff") format("woff");
   font-weight: normal;
   font-style: italic;
   font-display: swap;
 }
 @font-face {
   font-family: "Georgia";
-  src: url("Georgia-BoldItalic.woff2") format("woff2"), url("Georgia-BoldItalic.woff") format("woff");
+  src: url("../../assets/fonts/Georgia/Georgia-BoldItalic.woff2") format("woff2"), url("../../assets/fonts/Georgia/Georgia-BoldItalic.woff") format("woff");
   font-weight: bold;
   font-style: italic;
   font-display: swap;
 }
 @font-face {
   font-family: "Georgia";
-  src: url("Georgia-Bold.woff2") format("woff2"), url("Georgia-Bold.woff") format("woff");
+  src: url("../../assets/fonts/Georgia/Georgia-Bold.woff2") format("woff2"), url("../../assets/fonts/Georgia/Georgia-Bold.woff") format("woff");
   font-weight: bold;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Georgia";
-  src: url("Georgia.woff2") format("woff2"), url("Georgia.woff") format("woff");
+  src: url("../../assets/fonts/Georgia/Georgia.woff2") format("woff2"), url("../../assets/fonts/Georgia/Georgia.woff") format("woff");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Arial";
-  src: url("Arial-Black.woff2") format("woff2"), url("Arial-Black.woff") format("woff");
+  src: url("../../assets/fonts/Arial/Arial-Black.woff2") format("woff2"), url("../../assets/fonts/Arial/Arial-Black.woff") format("woff");
   font-weight: 900;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Arial";
-  src: url("Arial-BoldMT.woff2") format("woff2"), url("Arial-BoldMT.woff") format("woff");
+  src: url("../../assets/fonts/Arial/Arial-BoldMT.woff2") format("woff2"), url("../../assets/fonts/Arial/Arial-BoldMT.woff") format("woff");
   font-weight: bold;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Arial";
-  src: url("Arial-BoldItalicMT.woff2") format("woff2"), url("Arial-BoldItalicMT.woff") format("woff");
+  src: url("../../assets/fonts/Arial/Arial-BoldItalicMT.woff2") format("woff2"), url("../../assets/fonts/Arial/Arial-BoldItalicMT.woff") format("woff");
   font-weight: bold;
   font-style: italic;
   font-display: swap;
 }
 @font-face {
   font-family: "Arial";
-  src: url("Arial-ItalicMT.woff2") format("woff2"), url("Arial-ItalicMT.woff") format("woff");
+  src: url("../../assets/fonts/Arial/Arial-ItalicMT.woff2") format("woff2"), url("../../assets/fonts/Arial/Arial-ItalicMT.woff") format("woff");
   font-weight: normal;
   font-style: italic;
   font-display: swap;
 }
 @font-face {
   font-family: "Arial Narrow";
-  src: url("ArialNarrow.woff2") format("woff2"), url("ArialNarrow.woff") format("woff");
+  src: url("../../assets/fonts/Arial/ArialNarrow.woff2") format("woff2"), url("../../assets/fonts/Arial/ArialNarrow.woff") format("woff");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Arial Narrow";
-  src: url("ArialNarrow-Bold.woff2") format("woff2"), url("ArialNarrow-Bold.woff") format("woff");
+  src: url("../../assets/fonts/Arial/ArialNarrow-Bold.woff2") format("woff2"), url("../../assets/fonts/Arial/ArialNarrow-Bold.woff") format("woff");
   font-weight: bold;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Arial Narrow";
-  src: url("ArialNarrow-BoldItalic.woff2") format("woff2"), url("ArialNarrow-BoldItalic.woff") format("woff");
+  src: url("../../assets/fonts/Arial/ArialNarrow-BoldItalic.woff2") format("woff2"), url("../../assets/fonts/Arial/ArialNarrow-BoldItalic.woff") format("woff");
   font-weight: bold;
   font-style: italic;
   font-display: swap;
 }
 @font-face {
   font-family: "Arial Narrow";
-  src: url("ArialNarrow-Italic.woff2") format("woff2"), url("ArialNarrow-Italic.woff") format("woff");
+  src: url("../../assets/fonts/Arial/ArialNarrow-Italic.woff2") format("woff2"), url("../../assets/fonts/Arial/ArialNarrow-Italic.woff") format("woff");
   font-weight: normal;
   font-style: italic;
   font-display: swap;
 }
 @font-face {
   font-family: "Arial";
-  src: url("ArialMT.woff2") format("woff2"), url("ArialMT.woff") format("woff");
+  src: url("../../assets/fonts/Arial/ArialMT.woff2") format("woff2"), url("../../assets/fonts/Arial/ArialMT.woff") format("woff");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -532,16 +776,16 @@ html {
   z-index: 5;
 }
 
-.header__container {
+.header-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding-top: 30px;
-  padding-bottom: 34px;
+  padding-bottom: 30px;
 }
 @media (max-width: 320px) {
-  .header__container {
-    padding-top: 27px;
+  .header-container {
+    padding-top: 30px;
   }
 }
 
@@ -578,6 +822,10 @@ html {
   position: relative;
   display: inline-block;
   color: #545454;
+  transition: color 0.5s ease-in-out;
+}
+.menu-item-link:hover {
+  color: #292929;
 }
 .menu-item-link::after {
   content: "";
@@ -611,18 +859,18 @@ html {
   background: #F1CDB3;
 }
 
-.header__nav {
+.header-nav {
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
 
-.header__nav-menu {
+.header-nav-menu {
   display: flex;
   padding-bottom: 0.3rem;
 }
-@media (max-width: 720px) {
-  .header__nav-menu {
+@media (max-width: 735px) {
+  .header-nav-menu {
     display: none;
   }
 }
@@ -636,12 +884,12 @@ html {
   height: 2px;
   width: 30px;
   margin-bottom: 8px;
-  background-color: #F1CDB3;
+  background-color: #000;
 }
 .hamb-menu > .bar:last-child {
   margin-bottom: 0;
 }
-@media (max-width: 720px) {
+@media (max-width: 735px) {
   .hamb-menu {
     display: block;
   }
@@ -658,9 +906,23 @@ html {
 .pets-wrapper {
   display: flex;
   flex-direction: column;
+  align-items: center;
   row-gap: 45px;
-  padding-top: 79px;
+  padding-top: 80px;
   padding-bottom: 100px;
+  flex: 1 0;
+}
+@media (max-width: 1080px) {
+  .pets-wrapper {
+    row-gap: 15px;
+    padding-bottom: 76px;
+  }
+}
+@media (max-width: 660px) {
+  .pets-wrapper {
+    padding-top: 42px;
+    padding-bottom: 43px;
+  }
 }
 
 .pets-heading {
@@ -669,33 +931,54 @@ html {
   text-align: center;
   line-height: 45px;
 }
+@media (max-width: 660px) {
+  .pets-heading {
+    max-width: 100%;
+    font-size: 25px;
+    line-height: 32px;
+    letter-spacing: 1.3px;
+  }
+  .pets-heading > .span-pre {
+    white-space: pre;
+  }
+}
 
 .pets-items {
   display: flex;
   justify-content: space-between;
   align-items: center;
   row-gap: 31px;
-  padding-top: 15px;
+  padding-top: 16px;
   padding-bottom: 15px;
   flex-flow: row wrap;
 }
+@media (max-width: 1080px) {
+  .pets-items {
+    padding: 15px 64px 25px;
+    row-gap: 31px;
+  }
+}
+@media (max-width: 735px) {
+  .pets-items {
+    flex-flow: column wrap;
+  }
+}
+@media (max-width: 660px) {
+  .pets-items {
+    padding: 27px 15px;
+  }
+}
 
 .pets-item {
-  padding-bottom: 30px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  flex-direction: column;
-  row-gap: 30px;
-  flex-shrink: 1;
+  padding-bottom: 31px;
 }
 @media (max-width: 1080px) {
-  .pets-item:last-child {
+  .pets-item:not(:nth-child(-n+6)) {
     display: none;
   }
 }
-@media (max-width: 720px) {
-  .pets-item:not(:first-child) {
+@media (max-width: 735px) {
+  .pets-item:not(:nth-child(-n+3)) {
     display: none;
   }
 }
@@ -706,10 +989,10 @@ html {
   align-items: center;
   column-gap: 20px;
 }
-
-.pagi-item {
-  width: 52px;
-  height: 52px;
+@media (max-width: 660px) {
+  .pagination {
+    column-gap: 10px;
+  }
 }
 
 .footer {
@@ -748,7 +1031,7 @@ html {
 }
 @media (max-width: 660px) {
   .footer-content {
-    row-gap: 45px;
+    row-gap: 38px;
   }
 }
 
@@ -761,8 +1044,9 @@ html {
 @media (max-width: 660px) {
   .footer-contacts-heading {
     font-size: 24px;
+    padding: 0 15px;
     text-align: center;
-    line-height: 30px;
+    line-height: 32px;
   }
   .footer-contacts-heading > .span-pre {
     white-space: initial;
@@ -788,7 +1072,7 @@ html {
 }
 @media (max-width: 800px) {
   .footer-contacts:nth-of-type(2) {
-    margin-right: 5px;
+    margin: 0;
   }
 }
 @media (max-width: 800px) and (max-width: 660px) {
@@ -809,6 +1093,10 @@ html {
   line-height: 23px;
   letter-spacing: 1.1px;
   color: #F1CDB3;
+  transition: color 0.3s ease-in;
+}
+.footer-link:hover {
+  color: #B2B2B2;
 }
 @media (max-width: 660px) {
   .footer-link {
@@ -829,7 +1117,7 @@ html {
 }
 @media (max-width: 660px) {
   .footer-background {
-    max-width: 88%;
+    max-width: 87%;
   }
 }
 
