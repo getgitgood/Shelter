@@ -803,12 +803,10 @@ html {
   margin-right: 0;
 }
 
-.menu-item-link--active {
-  position: relative;
+.link--active {
   color: #292929;
-  cursor: default;
 }
-.menu-item-link--active::after {
+.link--active::after {
   content: "";
   left: 0;
   position: absolute;
