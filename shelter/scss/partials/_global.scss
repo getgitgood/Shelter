@@ -66,22 +66,23 @@ input:hover {
   &:hover {
     color: $color-dark-m;
   }
-  &::after {
-    content: "";
-    position: absolute;
-    bottom: -6px;
-    display: block;
-    height: 3px;
-    background: $color-primary;
-    width: 0;
-    left: 50%;
-    transition: width 0.3s ease 0s, left 0.3s ease 0s;
-  }
+  //** note: uncomment this before deploy to portfolio
+  // &::after {
+  //   content: "";
+  //   position: absolute;
+  //   bottom: -6px;
+  //   display: block;
+  //   height: 3px;
+  //   background: $color-primary;
+  //   width: 0;
+  //   left: 50%;
+  //   transition: width 0.3s ease 0s, left 0.3s ease 0s;
+  // }
 
-  &:hover::after {
-    width: 100%;
-    left: 0;
-  }
+  // &:hover::after {
+  //   width: 100%;
+  //   left: 0;
+  // }
 }
 
 
