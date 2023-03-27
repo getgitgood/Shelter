@@ -86,12 +86,10 @@ html {
   & > .bar:last-child {
     margin-bottom: 0;
   }
-
   @media (max-width: $throw-burger) {
     display: block;
   }
 }
-
 
 // ================== Main
 

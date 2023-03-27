@@ -154,21 +154,6 @@ input:hover {
 .menu-item-link:hover {
   color: #B2B2B2;
 }
-.menu-item-link::after {
-  content: "";
-  position: absolute;
-  bottom: -6px;
-  display: block;
-  height: 3px;
-  background: #F1CDB3;
-  width: 0;
-  left: 50%;
-  transition: width 0.3s ease 0s, left 0.3s ease 0s;
-}
-.menu-item-link:hover::after {
-  width: 100%;
-  left: 0;
-}
 
 .link--active {
   position: relative;
