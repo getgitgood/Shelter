@@ -3,27 +3,43 @@
   box-sizing: border-box;
 }
 
+html {
+  font-family: $georgia;
+  font-size: 10px;
+  scroll-behavior: smooth;
+}
+
 a {
   text-decoration: none;
   color: $color-dark-l;
 }
 
-input:hover {
-  cursor: pointer;
+p {
+  font-size: 1.5rem;
 }
+@media (hover: hover) {
+  input:hover {
+  cursor: pointer;
+  }
+}
+
 
 .h2 {
   margin: 0;
-  font-size: 35px;
+  font-size: 3.5rem;
   font-weight: 400;
   color: $color-dark-l;
-  letter-spacing: 2.2px;
+  letter-spacing: 0.20rem;
+  @media screen and (max-width: $semi-mobile) {
+    font-size: 2.5rem;
+  }
   @media (max-width: $mobile-extreme) {
     & .span-pre {
       white-space:normal;
     }
   }
 }
+
 .logo-title, .logo-subtitle {
   display: block;
 }
@@ -34,19 +50,19 @@ input:hover {
   }
 }
 .logo-title {
-  font-size: 32px;
+  font-size: 3.2rem;
   color: $color-primary;
-  padding-bottom: 8px;
-  letter-spacing: 0.13rem;
-  line-height: 2.5rem;
+  padding-bottom: 1rem;
+  letter-spacing: 0.06em;
+  line-height: 3.5rem;
 }
 
 .logo-subtitle {
   margin: 0;
   font-family: $arial;
   font-weight: 400;
-  font-size: 13px;
-  letter-spacing: 1.3px;
+  font-size: 1.3rem;
+  letter-spacing: 0.1em;
   color: $color-light-xl;
 
   transition: color 0.3s ease;
@@ -58,7 +74,15 @@ input:hover {
   text-align: center;
 }
 
+.menu-item {
+  margin-right: 3.5rem;
+  font-family: $arial;
+  &:last-child {
+    margin-right: 0;
+  }
+}
 .menu-item-link {
+  font-size: 1.5rem;
   position: relative;
   display: inline-block;
   color: $color-dark-s;
@@ -66,7 +90,7 @@ input:hover {
   &:hover {
     color: $color-dark-m;
   }
-  //** note: uncomment this before deploy to portfolio
+  //** note: uncomment this before deploy into portfolio
   // &::after {
   //   content: "";
   //   position: absolute;
@@ -122,10 +146,10 @@ input:hover {
 .button {
   display: inline-block;
   padding: 15px 44px;
-  font-size: 17px;
-  letter-spacing: 1px;
+  font-size: 1.7rem;
+  letter-spacing: 0.1rem;
   text-align: center;
-  line-height: 20px;
+  line-height: 2.0rem;
   color: $color-dark-3xl;
   border: 1px solid $color-primary;
   border-radius: 100px;
@@ -133,9 +157,11 @@ input:hover {
   cursor: pointer;
 
   transition: all 0.3s ease-in;
-  &:hover {
-    background-color: $color-primary-light;
-    border-color: transparent;
+  @media (hover:hover) {
+    &:hover {
+      background-color: $color-primary-light;
+      border-color: transparent;
+    }
   }
 }
 
@@ -148,12 +174,17 @@ input:hover {
   row-gap: 30px;
   flex-shrink: 1;
 
-  &:hover {
-    & > .button {
-      background-color: $color-primary-light;
-      border-color: transparent;
+  @media (hover:hover) {
+    &:hover {
+      box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
+      cursor: pointer;
+      & > .button {
+        background-color: $color-primary-light;
+        border-color: transparent;
+      }
     }
   }
+  
 }
 
 .button:focus {
@@ -230,23 +261,26 @@ input:hover {
   background-color: $color-primary;
   font-weight: 400;
   cursor: default;
-  &:hover {
-    background-color: $color-primary;
+  @media (hover:hover) {
+    &:hover {
+      background-color: $color-primary;
+    }
   }
+  
 }
 
 .pets-item-name {
-  font-size: 20px;
-  line-height: 21px;
-  letter-spacing: 1.2px;
+  font-size: 2rem;
+  line-height: 2.1rem;
+  letter-spacing: 0.12rem;
 }
 
 .h2--light {
   margin: 0;
   color: $color-light-xl;
   font-weight: 400;
-  font-size: 44px;
-  line-height: 58px;
+  font-size: 4.4rem;
+  line-height: 5.8rem;
   font-style:normal;
 }
 
