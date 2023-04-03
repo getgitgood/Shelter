@@ -244,6 +244,7 @@ p {
   flex-direction: column;
   row-gap: 30px;
   flex-shrink: 1;
+  transition: all 0.3s ease-in;
 }
 @media (hover: hover) {
   .pets-item:hover {

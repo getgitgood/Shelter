@@ -161,7 +161,16 @@ p {
   text-align: center;
 }
 
+.menu-item {
+  margin-right: 3.5rem;
+  font-family: "Arial", sans-serif;
+}
+.menu-item:last-child {
+  margin-right: 0;
+}
+
 .menu-item-link {
+  font-size: 1.5rem;
   position: relative;
   display: inline-block;
   color: #CDCDCD;
@@ -235,6 +244,7 @@ p {
   flex-direction: column;
   row-gap: 30px;
   flex-shrink: 1;
+  transition: all 0.3s ease-in;
 }
 @media (hover: hover) {
   .pets-item:hover {
