@@ -3,8 +3,11 @@
 @import "../partials/fonts";
 @import "../partials/mixin";
 @import "../../node_modules/normalize.css/normalize";
+@import "../partials/popups";
 
-
+body {
+  position: relative;
+}
 .wrapper {
   padding-left: 40px;
   padding-right: 40px;
@@ -44,15 +47,6 @@
   }
 }
 
-.menu-item {
-  margin-right: 3.5rem;
-  font-family: $arial;
-  font-size: 1.5rem;
-  &:last-child {
-    margin-right: 0;
-  }
-
-}
 
 .header-nav {
   @include flex-around()
@@ -66,25 +60,7 @@
   }
 }
 
-.hamb-menu {
-  display: none;
-  cursor: pointer;
 
-  & > .bar {
-    display: block;
-    height: 2px;
-    width: 30px;
-    margin-bottom: 8px;
-    background-color: $color-primary;
-  }
-
-  & > .bar:last-child {
-    margin-bottom: 0;
-  }
-  @media (max-width: $throw-burger) {
-    display: block;
-  }
-}
 
 // ================== Main
 

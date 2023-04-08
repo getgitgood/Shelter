@@ -1,3 +1,4 @@
+@import "../partials/variables";
 @import "../partials/fonts";
 *, *::after, *::before {
   box-sizing: border-box;
@@ -109,6 +110,31 @@ p {
   // }
 }
 
+.hamb-menu-btn {
+  z-index: 6;
+  display: none;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+  & > .bar {
+    display: block;
+    height: 2px;
+    width: 30px;
+    margin-bottom: 8px;
+    background-color: $color-primary;
+    
+  }
+
+  & > .bar:last-child {
+    margin-bottom: 0;
+  }
+  @media (max-width: $throw-burger) {
+    display: block;
+    
+    &.clicked {
+      transform: rotate(-90deg);
+    }
+  }
+}
 
 .link--active {
   position: relative;
@@ -168,6 +194,8 @@ p {
 .pets-item {
   padding-bottom: 30px;
   display: flex;
+  position: relative;
+  left: 0;
   justify-content: space-around;
   align-items: center;
   flex-direction: column;
