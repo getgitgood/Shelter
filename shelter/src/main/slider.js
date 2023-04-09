@@ -1,8 +1,11 @@
 const slider = document.querySelector('.slider-items');
-const sliderItem = document.querySelector('.pets-item')
+const prevContainer = document.querySelector('.prev-items');
+const currContainer = document.querySelector('.curr-items');
+const nextContainer = document.querySelector('.next-items');
 const buttonLeft = document.querySelector('.button-pagi--prev');
 const buttonRight = document.querySelector('.button-pagi--next');
 
+window.addEventListener('resize', getCardsNumber)
 function getRandom () {
   return Math.round(Math.random() * 7)
 }
@@ -36,13 +39,6 @@ function prevArrFill(cardsTotal) {
   }
 }
 
-
-// function prevArrFill(cardsTotal) {
-//   prevArr = [...nextArr];
-//   nextArr = []
-//   nextArrFill(cardsTotal)
-// }
-
 function initArrays(cardsTotal) {
   nextArrFill(cardsTotal);
   currArr = [...nextArr];
@@ -74,7 +70,7 @@ function backward(cardsTotal) {
   prevArrFill(cardsTotal)
 }
 
-function changeToBackward(cardsTotal) {
+function changeToForward(cardsTotal) {
   let temp = [...currArr];
   currArr = [...prevArr];
   prevArr = [...temp];
@@ -82,24 +78,72 @@ function changeToBackward(cardsTotal) {
   nextArrFill(cardsTotal)
 }
 
-changeToBackward(getCardsNumber())
-buttonRight.addEventListener('click', (e) => {
-  e.preventDefault()
-  forward(getCardsNumber())
-  console.log(prevArr, currArr, nextArr)
-})
+function changeToBackward(cardsTotal) {
+  let temp = [...currArr];
+  currArr = [...nextArr];
+  nextArr = [...temp];
+  prevArr = [];
+  prevArrFill(cardsTotal)
+}
 
-buttonLeft.addEventListener('click', (e) => {
-  e.preventDefault()
-  backward(getCardsNumber())
-  console.log(prevArr, currArr, nextArr)
-})
+function constructCards(data, ...arr) {
+  let itemContainer = currContainer;
+  prevContainer.innerHTML = '';
+  nextContainer.innerHTML = '';
+  currContainer.innerHTML = '';
+  arr.forEach(item => {
+    if (item === prevArr) {
+      itemContainer = prevContainer
+    }
+    if (item === nextArr) {
+      itemContainer = nextContainer
+    }
+    if (item === currArr) {
+      itemContainer = currContainer
+    }
+    item.forEach(num => {
+      const name = data[num].name;
+      const img = data[num].img;
+      const html = `
+      <div data-id=${num} class="pets-item">
+        <img src="${img}" alt="pet_${name}" class="pets-image">
+        <span class="pets-item-name">${name}</span>
+        <button data-id=${num} class="button button--secondary">Learn more</button>
+      </div>`;
+      itemContainer.insertAdjacentHTML("afterbegin", html)
+    })
+  })
+}
 
-// console.log(prevArr, currArr, nextArr)
 fetch('./src/pets_info.json')
   .then(response => response.json())
   .then(data => {
-    // console.log(data[7])
+    
+    constructCards(data, prevArr, currArr, nextArr);
+    buttonRight.addEventListener('click', (e) => {
+      e.preventDefault()
+      forward(getCardsNumber())
+      slider.classList.add('transition-right')
+      
+    });
+    buttonLeft.addEventListener('click', (e) => {
+      e.preventDefault()
+      backward(getCardsNumber())
+      console.log(prevArr, currArr, nextArr)
+      slider.classList.add('transition-left')
+      
+    })
+    slider.addEventListener('animationend', (e) => {
+      if (e.animationName === "move-left") {
+        slider.classList.remove('transition-left');
+        constructCards(data, prevArr, currArr, nextArr);
+      } else {
+        slider.classList.remove('transition-right')
+        constructCards(data, prevArr, currArr, nextArr);
+      }
+    })
   })
   .catch(error => console.log(error))
 
+
+export {prevArr, currArr, nextArr}
