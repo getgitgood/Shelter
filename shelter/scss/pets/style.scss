@@ -3,6 +3,7 @@
 @import "../partials/fonts";
 @import "../partials/mixin";
 @import "../partials/popups";
+@import "../partials/popups";
 @import "../../node_modules/normalize.css/normalize";
 
 html {
@@ -152,6 +153,7 @@ html {
 .pets-items {
   @include flex-around($horz: space-between);
   row-gap: 31px;
+  height: 30%;
   padding-top: 16px;
   padding-bottom: 15px;
   flex-flow: row wrap;

@@ -1,3 +1,4 @@
+const body = document.querySelector('body');
 const slider = document.querySelector('.slider-items');
 const prevContainer = document.querySelector('.prev-items');
 const currContainer = document.querySelector('.curr-items');
@@ -5,16 +6,23 @@ const nextContainer = document.querySelector('.next-items');
 const buttonLeft = document.querySelector('.button-pagi--prev');
 const buttonRight = document.querySelector('.button-pagi--next');
 
-window.addEventListener('resize', getCardsNumber)
+const button = document.getElementsByTagName('button');
+console.log(button);
+const html = document.querySelector('head');
+console.log(document.head.nextSibling)
+
+
+
+console.log(button)
 function getRandom () {
   return Math.round(Math.random() * 7)
 }
 
 function getCardsNumber() {
-  let sliderStyles= window.getComputedStyle(slider);
-  let sliderColGap = parseInt(sliderStyles.columnGap)
-  const CARD_WIDTH = 270 + sliderColGap * 2;
-  return Math.round(slider.offsetWidth / CARD_WIDTH);
+    let sliderStyles = window.getComputedStyle(slider);
+    let sliderColGap = parseInt(sliderStyles.columnGap)
+    const CARD_WIDTH = 260 + sliderColGap * 2;
+    return Math.round(slider.offsetWidth / CARD_WIDTH);
 }
 
 let [prevArr, currArr, nextArr]  = [[], [], []];
@@ -49,6 +57,7 @@ function initArrays(cardsTotal) {
   currArr = [...nextArr]
   nextArr = []
   nextArrFill(cardsTotal);
+  return [prevArr, currArr, nextArr]
 } 
 
 initArrays(getCardsNumber())
@@ -70,21 +79,21 @@ function backward(cardsTotal) {
   prevArrFill(cardsTotal)
 }
 
-function changeToForward(cardsTotal) {
-  let temp = [...currArr];
-  currArr = [...prevArr];
-  prevArr = [...temp];
-  nextArr = [];
-  nextArrFill(cardsTotal)
-}
+// function changeToForward(cardsTotal) {
+//   let temp = [...currArr];
+//   currArr = [...prevArr];
+//   prevArr = [...temp];
+//   nextArr = [];
+//   nextArrFill(cardsTotal)
+// }
 
-function changeToBackward(cardsTotal) {
-  let temp = [...currArr];
-  currArr = [...nextArr];
-  nextArr = [...temp];
-  prevArr = [];
-  prevArrFill(cardsTotal)
-}
+// function changeToBackward(cardsTotal) {
+//   let temp = [...currArr];
+//   currArr = [...nextArr];
+//   nextArr = [...temp];
+//   prevArr = [];
+//   prevArrFill(cardsTotal)
+// }
 
 function constructCards(data, ...arr) {
   let itemContainer = currContainer;
@@ -108,30 +117,32 @@ function constructCards(data, ...arr) {
       <div data-id=${num} class="pets-item">
         <img src="${img}" alt="pet_${name}" class="pets-image">
         <span class="pets-item-name">${name}</span>
-        <button data-id=${num} class="button button--secondary">Learn more</button>
+        <button class="button button--secondary">Learn more</button>
       </div>`;
       itemContainer.insertAdjacentHTML("afterbegin", html)
     })
   })
 }
-
+window.addEventListener('resize', () => {
+  if (window.screen.width < 735) {
+    constructCards(null, prevArr, currArr, nextArr)
+  } 
+})
+let dataSet;
 fetch('./src/pets_info.json')
   .then(response => response.json())
   .then(data => {
-    
+    dataSet = data;
     constructCards(data, prevArr, currArr, nextArr);
     buttonRight.addEventListener('click', (e) => {
       e.preventDefault()
       forward(getCardsNumber())
-      slider.classList.add('transition-right')
-      
+      slider.classList.add('transition-right');
     });
     buttonLeft.addEventListener('click', (e) => {
       e.preventDefault()
       backward(getCardsNumber())
-      console.log(prevArr, currArr, nextArr)
       slider.classList.add('transition-left')
-      
     })
     slider.addEventListener('animationend', (e) => {
       if (e.animationName === "move-left") {
@@ -143,7 +154,23 @@ fetch('./src/pets_info.json')
       }
     })
   })
+  
   .catch(error => console.log(error))
 
+let resizeTimer;
 
-export {prevArr, currArr, nextArr}
+window.addEventListener('resize', function() {
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(function() {
+      if (window.screen.width < 735) {
+        initArrays(getCardsNumber())
+      } else if (window.screen.width < 930) { 
+        initArrays(getCardsNumber())
+      } else {
+        initArrays(getCardsNumber())
+      }
+      constructCards(dataSet, prevArr, currArr, nextArr)
+  }, 75);
+  })}
+);

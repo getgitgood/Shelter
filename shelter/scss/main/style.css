@@ -1955,7 +1955,7 @@ body {
     left: -1045px;
   }
 }
-@media (max-width: 1080px) {
+@media (max-width: 1133px) {
   @keyframes move-left {
     from {
       right: 0%;
@@ -1973,7 +1973,7 @@ body {
     }
   }
 }
-@media (max-width: 800px) {
+@media (max-width: 735px) {
   @keyframes move-left {
     from {
       right: 0%;
@@ -2280,6 +2280,9 @@ body {
 
 .pets-item {
   object-fit: cover;
+}
+.pets-item > .button--secondary {
+  pointer-events: none;
 }
 @media (max-width: 1080px) {
   .pets-item:not(:nth-child(-n+2)) {
