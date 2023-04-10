@@ -6,14 +6,6 @@ const nextContainer = document.querySelector('.next-items');
 const buttonLeft = document.querySelector('.button-pagi--prev');
 const buttonRight = document.querySelector('.button-pagi--next');
 
-const button = document.getElementsByTagName('button');
-console.log(button);
-const html = document.querySelector('head');
-console.log(document.head.nextSibling)
-
-
-
-console.log(button)
 function getRandom () {
   return Math.round(Math.random() * 7)
 }
