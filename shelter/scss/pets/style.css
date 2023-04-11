@@ -367,6 +367,11 @@ p {
   pointer-events: none;
 }
 
+.disabled {
+  cursor: pointer;
+  pointer-events: none;
+}
+
 .button--active {
   background-color: #F1CDB3;
   font-weight: 400;
@@ -857,6 +862,11 @@ p {
 .button--inactive {
   color: #CDCDCD;
   border-color: #CDCDCD;
+  pointer-events: none;
+}
+
+.disabled {
+  cursor: pointer;
   pointer-events: none;
 }
 
@@ -1642,6 +1652,11 @@ p {
 .button--inactive {
   color: #CDCDCD;
   border-color: #CDCDCD;
+  pointer-events: none;
+}
+
+.disabled {
+  cursor: pointer;
   pointer-events: none;
 }
 
@@ -2562,6 +2577,9 @@ html {
 
 .pets-item {
   padding-bottom: 31px;
+}
+.pets-item > .button--secondary {
+  pointer-events: none;
 }
 @media (max-width: 1080px) {
   .pets-item:not(:nth-child(-n+6)) {

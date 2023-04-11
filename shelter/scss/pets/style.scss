@@ -171,6 +171,9 @@ html {
 
 .pets-item {
   padding-bottom: 31px;
+  & > .button--secondary {
+    pointer-events: none;
+  }
   @media (max-width: $semi-tablet) {
     &:not(:nth-child(-n+6)) {
       display: none;
