@@ -285,6 +285,11 @@ p {
   pointer-events: none;
 }
 
+.disabled {
+  cursor: pointer;
+  pointer-events: none;
+}
+
 .button--active {
   background-color: $color-primary;
   font-weight: 400;

@@ -130,10 +130,14 @@ fetch('./src/pets_info.json')
       e.preventDefault()
       forward(getCardsNumber())
       slider.classList.add('transition-right');
+      buttonRight.classList.add('disabled')
+      buttonLeft.classList.add('disabled')
     });
     buttonLeft.addEventListener('click', (e) => {
       e.preventDefault()
       backward(getCardsNumber())
+      buttonRight.classList.add('disabled')
+      buttonLeft.classList.add('disabled')
       slider.classList.add('transition-left')
     })
     slider.addEventListener('animationend', (e) => {
@@ -144,6 +148,8 @@ fetch('./src/pets_info.json')
         slider.classList.remove('transition-right')
         constructCards(data, prevArr, currArr, nextArr);
       }
+      buttonRight.classList.remove('disabled')
+      buttonLeft.classList.remove('disabled')
     })
   })
   

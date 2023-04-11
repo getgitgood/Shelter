@@ -367,6 +367,11 @@ p {
   pointer-events: none;
 }
 
+.disabled {
+  cursor: pointer;
+  pointer-events: none;
+}
+
 .button--active {
   background-color: #F1CDB3;
   font-weight: 400;
@@ -1179,6 +1184,11 @@ p {
 .button--inactive {
   color: #CDCDCD;
   border-color: #CDCDCD;
+  pointer-events: none;
+}
+
+.disabled {
+  cursor: pointer;
   pointer-events: none;
 }
 
