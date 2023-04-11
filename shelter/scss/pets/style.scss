@@ -2,13 +2,11 @@
 @import "../partials/global";
 @import "../partials/fonts";
 @import "../partials/mixin";
-@import "../partials/popups";
-@import "../partials/popups";
 @import "../../node_modules/normalize.css/normalize";
 
 html {
   font-family: $georgia;
-  font-size: 10px;
+  font-size: 15px;
   scroll-behavior: smooth;
 }
 
@@ -35,11 +33,11 @@ html {
 }
 
 .logo-title {
-  font-size: 3.2rem;
+  font-size: 32px;
   color: $color-dark-l;
-  padding-bottom: 1rem;
-  letter-spacing: 0.06em;
-  line-height: 3.5rem;
+  padding-bottom: 8px;
+  letter-spacing: 0.13rem;
+  line-height: 2.5rem;
 }
 
 .logo-subtitle {
@@ -52,6 +50,7 @@ html {
 }
 
 .menu-item {
+  margin-right: 2.4rem;
   font-family: $arial;
 
   &:last-child {
@@ -62,16 +61,18 @@ html {
 
 .link--active {
   color: $color-dark-3xl;
-}
-
-.menu-item-link {
-  color: $color-dark-l;
-  @media (hover: hover) {
-    &:hover {
-    color: $color-dark-3xl;
-    }
+  &::after {
+    content: "";
+    left: 0;
+    position: absolute;
+    bottom: -6px;
+    display: block;
+    height: 3px;
+    width: 100%;
+    background: $color-primary;
   }
 }
+
 .header-nav {
   @include flex-around()
 }
@@ -141,9 +142,9 @@ html {
 
   @media (max-width: $semi-mobile) {
     max-width: 100%;
-    font-size: 2.5rem;
-    line-height: 3.2rem;
-    letter-spacing: 0.13rem;
+    font-size: 25px;
+    line-height: 32px;
+    letter-spacing: 1.3px;
     & > .span-pre {
       white-space: pre;
     }
@@ -153,7 +154,6 @@ html {
 .pets-items {
   @include flex-around($horz: space-between);
   row-gap: 31px;
-  height: 30%;
   padding-top: 16px;
   padding-bottom: 15px;
   flex-flow: row wrap;
@@ -171,9 +171,6 @@ html {
 
 .pets-item {
   padding-bottom: 31px;
-  & > .button--secondary {
-    pointer-events: none;
-  }
   @media (max-width: $semi-tablet) {
     &:not(:nth-child(-n+6)) {
       display: none;
@@ -230,16 +227,16 @@ html {
 }
 
 .footer-contacts-heading {
-  font-size: 3.5rem;
-  line-height: 4.5rem;
-  letter-spacing: 0.21rem;
+  font-size: 35px;
+  line-height: 45px;
+  letter-spacing: 2.1px;
   color: $color-light-xl;
 
   @media (max-width: $semi-mobile) {
-    font-size: 2.4rem;
+    font-size: 24px;
     padding: 0 15px;
     text-align: center;
-    line-height: 3.2rem;
+    line-height: 32px;
     & > .span-pre {
       white-space: initial;
     }
@@ -273,18 +270,15 @@ html {
 .footer-link {
   @include flex-around($horz: flex-start);
   column-gap: 20px;
-  font-size: 2rem;
-  line-height: 2.3rem;
-  letter-spacing: 0.11rem;
+  font-size: 20px;
+  line-height: 23px;
+  letter-spacing: 1.1px;
   color: $color-primary;
   transition: color 0.3s ease-in;
 
-  @media (hover:hover) {
-    &:hover {
-      color: $color-dark-m;
-    }
+  &:hover {
+    color: $color-dark-m;
   }
-  
   @media (max-width: $semi-mobile) {
     justify-content: center;
   }
