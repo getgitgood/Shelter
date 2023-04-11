@@ -3,11 +3,13 @@
 @import "../partials/fonts";
 @import "../partials/mixin";
 @import "../../node_modules/normalize.css/normalize";
-@import "../partials/popups";
 
-body {
-  position: relative;
+html {
+  font-family: $georgia;
+  font-size: 15px;
+  scroll-behavior: smooth;
 }
+
 .wrapper {
   padding-left: 40px;
   padding-right: 40px;
@@ -47,6 +49,15 @@ body {
   }
 }
 
+.menu-item {
+  margin-right: 2.4rem;
+  font-family: $arial;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+}
 
 .header-nav {
   @include flex-around()
@@ -60,7 +71,25 @@ body {
   }
 }
 
+.hamb-menu {
+  display: none;
+  cursor: pointer;
 
+  & > .bar {
+    display: block;
+    height: 2px;
+    width: 30px;
+    margin-bottom: 8px;
+    background-color: $color-primary;
+  }
+
+  & > .bar:last-child {
+    margin-bottom: 0;
+  }
+  @media (max-width: $throw-burger) {
+    display: block;
+  }
+}
 
 // ================== Main
 
@@ -98,8 +127,6 @@ body {
   margin-bottom: 80px;
 
   @media (max-width: $semi-tablet) {
-    max-width: initial;
-    padding: 0 12.4rem;
     margin-bottom: 102px;
 
     & > div  {
@@ -108,29 +135,20 @@ body {
     }
   }
   
-  @media (max-width: $semi-mobile) {
-    padding: 0;
+  @media (max-width: $mobile) {
     margin-bottom: 106px;
     text-align: center;
     & > .intro-content-heading {
-      font-size: 2.5rem;
-      line-height: 3.2rem;
-      letter-spacing: 0.15rem;
+      font-size: 25px;
+      line-height: 32px;
+      letter-spacing: 1.5px;
     }
   }
 }
 
 .intro-content-heading {
-  max-width: 460px;
-  
-  letter-spacing: 0;
   & > span {
     white-space: pre;
-  }
-
-  @media (max-width: $semi-mobile) {
-    margin: 0 auto;
-    max-width: 300px;
   }
 }
 
@@ -139,7 +157,7 @@ body {
   font-family: $arial;
   color: $color-dark-s;
 
-  line-height: 2.4rem;
+  line-height: 1.6rem;
 }
 
 .intro-background {
@@ -158,12 +176,11 @@ body {
 
 .about-wrapper {
   @include flex-around($horz: center);
-  // flex-flow: row wrap-reverse;
-  gap: 122px;
+  flex-flow: row wrap-reverse;
+  gap: 120px;
   padding-top: 80px;
   padding-bottom: 100px;
   @media (max-width: $tablet) {
-    flex-flow: row wrap-reverse;
     gap: 80px;
   }
   @media (max-width: $mobile) {
@@ -176,17 +193,11 @@ body {
 .about-content {
   @include flex-around();
   flex-direction: column;
-  // flex-basis: 430px;
-  max-width: 36%;
+  flex-basis: 430px;
+
   & > .about-content-text {
     color: $color-dark-l;
     margin: 0;
-  }
-  @media (max-width: $tablet) {
-    max-width: 61%;
-  }
-  @media (max-width: $semi-mobile) {
-    max-width: initial;
   }
   & > .about-content-text:first-of-type {
     margin: 25px 0;
@@ -202,11 +213,11 @@ body {
   }
 }
 .about-content-heading {
-  letter-spacing: 0.2rem;
+  letter-spacing: 2.1px;
   line-height: 130%;
 
   @media (max-width: $mobile) {
-    font-size: 2.5rem;
+    font-size: 25px;
     text-align: center;
     letter-spacing: 1.5px;
   }
@@ -248,24 +259,22 @@ body {
 
 .pets-content-heading {
   text-align: center;
-  font-size: 3.5rem;
-  line-height: 4.6rem;
-  letter-spacing: .2rem;
+  font-size: 35px;
+  line-height: 46px;
+  letter-spacing: 2.1px;
   max-width: 500px;
-  @media (max-width: $semi-mobile) {
-    font-size: 2.5rem;
+  @media (max-width: $throw-burger) {
+    font-size: 25px;
   }
   @media (max-width: $mobile) {
-    line-height: 3.2rem;
-    letter-spacing: 0.1rem;
+    line-height: 32px;
+    letter-spacing: 1.5px;
   }
 }
 
 .pets-slider-container {
   @include flex-around($horz: space-between);
   align-self: stretch;
-  width: 100%;
-  overflow: hidden;
   @media (max-width: $throw-burger) {
     flex-wrap: wrap;
     justify-content: center ;
@@ -274,87 +283,16 @@ body {
   }
 }
 
-.slider-wrapper {
-  align-items: center;
-  width: 100%;
-  display: flex;
-
-  @media (max-width: $throw-burger) {
-    max-width: 350px;
-    flex-wrap: wrap;
-    justify-content: center ;
-    column-gap: 80px;
-    row-gap: 21px;
-  }
-}
 .slider-items {
   @include flex-around($horz: space-evenly);
-  column-gap: 55px;
+  column-gap: 34px;
+  flex-wrap: wrap;
+  overflow: hidden;
   width: 100%;
-  position: relative;
-}
-
-.transition-left {
-  animation: move-left;
-  animation-duration: 1.4s;
-}
-
-.transition-right {
-  animation: move-right;
-  animation-duration: 1.4s;
-  
-}
-
-@keyframes move-left {
-  from {right: 0}
-  to {right: -1045px;}
-}
-@keyframes move-right {
-  from {left: 0}
-  to {left: -1045px;}
-}
-
-@media (max-width: 1133px) {
-  @keyframes move-left {
-    from {right: 0%}
-    to {right: -685px;}
-  }
-  @keyframes move-right {
-    from {left: 0}
-    to {left: -685px;}
-  }
-}
-
-@media (max-width: $throw-burger) {
-  @keyframes move-left {
-    from {right: 0%}
-    to {right: -325px;}
-  }
-  @keyframes move-right {
-    from {left: 0}
-    to {left: -325px;}
-  }
-}
-
-.prev-items, .curr-items, .next-items {
-  display: flex;
-}
-.curr-items {
-  column-gap: 90px;
   @media (max-width: $tablet) {
-    column-gap: 42px;
+    column-gap: 24px;
   }
 }
-.prev-items, .next-items {
-  pointer-events: none;
-  column-gap: 90px;
-  
-}
-.animate-right {
-  position: relative;
-  left: -250px;
-}
-
 
 .item-wrapper {
   padding-bottom: 30px;
@@ -378,7 +316,8 @@ body {
   padding-bottom: 60px;
   text-align: center;
   @media (max-width: $semi-mobile) {
-    letter-spacing: 0.1rem;
+    font-size: 25px;
+    letter-spacing: 1.3px;
     padding-bottom: 42px;
   }
 }
@@ -390,9 +329,6 @@ body {
   padding-right: 87px;
   row-gap: 55px;
   column-gap: 120px;
-  @media (max-width: 1280px) {
-    justify-content: center;
-  }
   @media (max-width: $semi-tablet) {
     padding-left: 40px;
     padding-right: 40px;
@@ -406,9 +342,6 @@ body {
     row-gap: 30px;
     column-gap: 10px;
     justify-content: space-between;
-  }
-  @media (max-width: $mobile-extreme) {
-    justify-content: space-around;
   }
 }
 
@@ -456,7 +389,7 @@ body {
   }
 }
 .help-item-title {
-  font-size: 2rem;
+  font-size: 20px;
   color: $color-dark-l;
   font-weight: 400;
   margin: 0;
@@ -464,9 +397,9 @@ body {
   line-height: 23px;
   letter-spacing: 1.1px;
   @media (max-width: $semi-mobile) {
-    font-size: 1.5rem;
+    font-size: 15px;
     margin-top: 20px;
-    line-height: 1.7rem;
+    line-height: 17px;
   }
 }
 
@@ -479,7 +412,6 @@ body {
 .donation-wrapper {
   padding-top: 80px;
   padding-bottom: 99px;
-  
   @media (max-width: $semi-tablet) {
     padding-bottom: 100px;
   }
@@ -492,8 +424,9 @@ body {
   margin-bottom: 20px;
   line-height: 45px;
   @media (max-width: $semi-mobile) {
+    font-size: 1.6rem;
+    line-height: 2.2rem;
     margin-bottom: 24px;
-    line-height: 3.2rem;
   }
 }
 
@@ -501,7 +434,7 @@ body {
   @include flex-around($horz: center);
   flex-flow: row wrap-reverse;
   column-gap: 30px;
-  @media (max-width: $semi-tablet) {
+  @media (max-width: $tablet) {
     row-gap: 60px;
   }
   @media (max-width: $semi-mobile) {
@@ -512,19 +445,13 @@ body {
 }
 
 .donation-content {
-  flex-basis: 32%;
   @include flex-around($horz: center, $vert: flex-start);
   flex-flow: column wrap;
   order: 1;
-
-  @media (max-width: $tablet) {
-    padding-right: 30px;
-  }
+  flex: 0 1 380px;
   @media (max-width: $semi-mobile) {
     text-align: center;
     align-items: center;
-    flex-basis: 380px;
-    padding-right: 0
   }
 }
 
@@ -540,7 +467,7 @@ body {
   padding: 10px 10px;
   padding-left: 60px;
   min-width: 350px;
-  font-size: 2rem;
+  font-size: 20px;
   color: $color-dark-l;
   letter-spacing: 1.2px;
   border-radius: 10px;
@@ -549,6 +476,7 @@ body {
 
   @media (max-width: $semi-mobile) {
     min-width: 280px;
+    margin-top: 5px;
     letter-spacing: 1px;
     padding-right: 0;
     padding-left: 58px;
@@ -564,7 +492,7 @@ body {
   padding: 20px 0;
   @media (max-width: $semi-mobile) {
     ::placeholder {
-      font-size: 1.5rem;
+      font-size: 15px;
       color: $color-dark-l;
     }
   }
@@ -585,18 +513,15 @@ body {
 }
 
 .pets-item {
-  object-fit: cover;
-  & > .button--secondary {
-    pointer-events: none;
-  }
   @media (max-width: $semi-tablet) {
     &:not(:nth-child(-n+2)) {
       display: none;
     }
   }
   @media (max-width: $throw-burger) {
-    &:not(:first-child) {
-      display: none;
+    display: none;
+    &.show {
+      display:flex;
     }
   }
 }
@@ -606,18 +531,17 @@ body {
   color: $color-dark-l;
   letter-spacing: 0.9px;
   line-height: 17px;
-  font-size: 1.5rem;
   @media (max-width: $semi-mobile) {
-    letter-spacing: 0.15rem;
-    font-size: 1.2rem;
-    line-height: 2.4rem;
+    font-size: 1rem;
+    letter-spacing: normal;
+    line-height: 1rem;
   }
 }
 .donation-legal-info {
   margin: 0;
   
   font-family: $arial;
-  font-size: 1.2rem;
+  font-size: 12px;
   font-style: italic;
   color: $color-dark-m;
   line-height: 18px;
@@ -648,7 +572,7 @@ body {
 .footer-content {
   @include flex-around($horz: space-between, $vert: flex-start);
   flex-wrap: wrap;
-  @media (max-width: $semi-tablet) {
+  @media (max-width: $tablet) {
     justify-content: center;
     column-gap: 40px;
     row-gap: 65px;
@@ -659,16 +583,16 @@ body {
 }
 
 .footer-contacts-heading {
-  font-size: 3.5rem;
-  line-height: 4.6rem;
-  letter-spacing: 0.2rem;
+  font-size: 35px;
+  line-height: 46px;
+  letter-spacing: 2.1px;
   color: $color-light-xl;
 
   @media (max-width: $semi-mobile) {
-    font-size: 2.4rem;
+    font-size: 24px;
     padding: 0 15px;
     text-align: center;
-    line-height: 3.3rem;
+    line-height: 33px;
     & > .span-pre {
       white-space: initial;
     }
@@ -703,19 +627,16 @@ body {
 .footer-link {
   @include flex-around($horz: flex-start);
   column-gap: 20px;
-  font-size: 2rem;
-  line-height: 2.3rem;
-  letter-spacing: 0.1rem;
+  font-size: 20px;
+  line-height: 23px;
+  letter-spacing: 1.1px;
   color: $color-primary;
 
   transition: color 0.3s ease-in;
 
-  @media (hover:hover) {
-    &:hover {
-      color: $color-dark-m;
-    }
+  &:hover {
+    color: $color-dark-m;
   }
-  
   @media (max-width: $semi-mobile) {
     justify-content: center;
   }
